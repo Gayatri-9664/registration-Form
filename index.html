@@ -6,24 +6,24 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f2f5;
+      margin: 0;
+      height: 150vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      background: #f8f9fa;
     }
     form {
-      background: #fff;
+      border: 1px solid #ccc;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 8px;
       width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     h2 {
       text-align: center;
       margin-bottom: 20px;
-      color: #333;
     }
     label {
       display: block;
@@ -47,13 +47,13 @@
       padding: 10px;
       border: none;
       border-radius: 5px;
-      background: #28a745;
+      background: #007bff;
       color: white;
       font-size: 16px;
       cursor: pointer;
     }
     button:hover {
-      background: #218838;
+      background: #0056b3;
     }
   </style>
 </head>
@@ -69,6 +69,9 @@
 
     <label for="password">Password</label>
     <input type="password" id="password" name="password" required minlength="6">
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6">
 
     <label for="dob">Date of Birth</label>
     <input type="date" id="dob" name="dob" required>
@@ -86,15 +89,15 @@
       <option value="Mechanical">Mechanical</option>
     </select>
 
-    <label for="skills">Skills (Select multiple)</label>
-    <select id="skills" name="skills" multiple>
-      <option value="C">C</option>
-      <option value="C++">C++</option>
-      <option value="Java">Java</option>
-      <option value="Python">Python</option>
-    </select>
+   <label for="skills">Skills</label>
+<select id="skills" name="skills" required>
+  <option value="">--Select a skill--</option>
+  <option value="C">C</option>
+  <option value="C++">C++</option>
+  <option value="Java">Java</option>
+  <option value="Python">Python</option>
+</select>
 
-    
     <label for="address">Address</label>
     <textarea id="address" name="address" rows="3"></textarea>
 
