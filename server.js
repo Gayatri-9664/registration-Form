@@ -1,23 +1,27 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const multer = require("multer"); // For file uploads
-const upload = multer();
+const multer = require("multer");
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+const upload = multer(); // memory storage
+
+// Parse form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Handle form submission
-app.post("/submit", upload.single("resume"), (req, res) => {
-  console.log("Form Data Received:");
-  console.log(req.body);
+app.post("/submit", upload.single("profilePic"), (req, res) => {
+  console.log("📌 Student Registration Data:");
+  Object.entries(req.body).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+  });
 
   if (req.file) {
-    console.log("File uploaded:", req.file.originalname);
+    console.log("📎 File uploaded:", req.file.originalname);
   }
 
-  res.send("Registration successful! Check server console for details.");
+  res.send("✅ Registration successful! Check server console for details.");
 });
 
 app.listen(5000, () => {
-  console.log("Server running at http://localhost:5000");
+  console.log("🚀 Server running at http://localhost:5000");
 });
